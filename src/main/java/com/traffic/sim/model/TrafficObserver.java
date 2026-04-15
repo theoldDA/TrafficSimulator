@@ -8,5 +8,5 @@ public interface TrafficObserver {
      * when the light changes
      */
 
-    public void updateState(TrafficLightState state);
+    public void updateState(String color);
 }

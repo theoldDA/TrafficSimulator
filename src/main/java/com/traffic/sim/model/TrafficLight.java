@@ -13,10 +13,11 @@ public class TrafficLight {
         this.currentState = initState;
     }
 
+    /**
+     * when the TrafficLight change color it that action will be noitice
+     */
+
     public void change() {
-        /**
-         * when the TrafficLight change color it that action will be noitice
-         */
 
         currentState = currentState.getNextState();
         notifyObservers();
@@ -25,17 +26,18 @@ public class TrafficLight {
     private void notifyObservers() {
 
         for (TrafficObserver observer : observers) {
-            observer.updateState(currentState);
+            observer.updateState(currentState.getColor());
         }
     }
 
-    public void addObserver() {
+    public void addObserver(TrafficObserver observer) {
 
-        // TODO
+        observers.add(observer);
+
     }
 
     public void removeObserver(TrafficObserver observer) {
 
-        // TODO
+        observers.remove(observer);
     }
 }
