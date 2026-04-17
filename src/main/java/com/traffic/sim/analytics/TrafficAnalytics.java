@@ -1,7 +1,11 @@
-package project;
+package com.traffic.sim.analytics;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import com.traffic.sim.datastore.TrafficEvent;
 
 // تحليل بيانات الإشارات
 public class TrafficAnalytics {
@@ -17,8 +21,7 @@ public class TrafficAnalytics {
         return events.stream()
                 .collect(Collectors.groupingBy(
                         TrafficEvent::getState,
-                        Collectors.counting()
-                ));
+                        Collectors.counting()));
     }
 
     // متوسط مدة كل حالة
@@ -26,8 +29,7 @@ public class TrafficAnalytics {
         return events.stream()
                 .collect(Collectors.groupingBy(
                         TrafficEvent::getState,
-                        Collectors.averagingInt(TrafficEvent::getDuration)
-                ));
+                        Collectors.averagingInt(TrafficEvent::getDuration)));
     }
 
     // أكثر حالة تكرارًا
@@ -35,8 +37,7 @@ public class TrafficAnalytics {
         return events.stream()
                 .collect(Collectors.groupingBy(
                         TrafficEvent::getState,
-                        Collectors.counting()
-                ))
+                        Collectors.counting()))
                 .entrySet()
                 .stream()
                 .max(Map.Entry.comparingByValue())

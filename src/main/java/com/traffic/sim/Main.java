@@ -1,5 +1,9 @@
 package com.traffic.sim;
 
+import java.time.LocalDateTime;
+
+import com.traffic.sim.datastore.TrafficDataStore;
+import com.traffic.sim.datastore.TrafficEvent;
 import com.traffic.sim.model.RedState;
 import com.traffic.sim.model.TrafficLight;
 
@@ -24,6 +28,8 @@ public class Main {
          * TrafficController controller = new TrafficController(Light, view);
          */
 
+        test.addObserver(color -> System.out.println("DEBUG: the UI should now turn " + color));
+
         // for further explanations (this acts as your job Tariq)
         test.addObserver(color -> {
             System.out.println("DEBUG: the UI should now turn " + color);
@@ -32,6 +38,11 @@ public class Main {
         // So here am testing my logic as console:
 
         test.addObserver(color -> System.out.println("System notification: Light is now " + color));
+
+        test.addObserver(color -> {
+            TrafficEvent event = new TrafficEvent(color, 5, LocalDateTime.now());
+            TrafficDataStore.saveEvent(event);
+        });
 
         System.out.println("Model Engine Started.");
 
