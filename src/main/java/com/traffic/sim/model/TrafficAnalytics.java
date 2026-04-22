@@ -1,11 +1,9 @@
-package com.traffic.sim.analytics;
+package com.traffic.sim.model;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import com.traffic.sim.datastore.TrafficEvent;
 
 // تحليل بيانات الإشارات
 public class TrafficAnalytics {
