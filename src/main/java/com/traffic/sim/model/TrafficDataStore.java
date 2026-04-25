@@ -1,4 +1,4 @@
-package com.traffic.sim.datastore;
+package com.traffic.sim.model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -2,9 +2,9 @@ package com.traffic.sim;
 
 import java.time.LocalDateTime;
 
-import com.traffic.sim.datastore.TrafficDataStore;
-import com.traffic.sim.datastore.TrafficEvent;
 import com.traffic.sim.model.RedState;
+import com.traffic.sim.model.TrafficDataStore;
+import com.traffic.sim.model.TrafficEvent;
 import com.traffic.sim.model.TrafficLight;
 
 public class Main {
