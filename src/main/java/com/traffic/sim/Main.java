@@ -1,14 +1,17 @@
 package com.traffic.sim;
 
-import com.traffic.sim.view.TrafficView;
 import com.traffic.sim.controller.TrafficController;
+import com.traffic.sim.view.TrafficView;
+
 import javafx.application.Application;
-import javafx.scene.*;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.SceneAntialiasing;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    
+
     static {
         // لضمان عدم ظهور شاشة بيضاء في بعض الأجهزة
         System.setProperty("prism.order", "sw");
@@ -18,7 +21,7 @@ public class Main extends Application {
     public void start(Stage stage) {
         Group root = new Group();
         TrafficView view = new TrafficView(root);
-        
+
         Scene scene = new Scene(root, 1280, 720, true, SceneAntialiasing.BALANCED);
         scene.setFill(Color.web("#87CEEB"));
         scene.setCamera(view.getCamera());
